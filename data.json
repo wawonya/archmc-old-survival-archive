@@ -6,15 +6,42 @@
     "description": "Old Survival Spawn",
     "date": "2026-06-29",
     "tags": ["spawn", "survival"],
-    "file": "images/spawn.jpg"
+    "file": "images/2025-08-14_00.47.24.png"
   },
   {
     "id": 2,
-    "type": "video",
-    "title": "Server Tour",
-    "description": "Old Survival Tour",
+    "type": "image",
+    "title": "Scene 1",
+    "description": "Old Survival Scene",
     "date": "2026-06-29",
-    "tags": ["tour"],
-    "file": "videos/tour.mp4"
+    "tags": ["scene"],
+    "file": "images/2025-08-22_15.53.49.png"
+  },
+  {
+    "id": 3,
+    "type": "image",
+    "title": "Scene 2",
+    "description": "Old Survival Scene",
+    "date": "2026-06-29",
+    "tags": ["scene"],
+    "file": "images/2025-09-09_20.13.32.png"
+  },
+  {
+    "id": 4,
+    "type": "video",
+    "title": "Recording 1",
+    "description": "Screen recording",
+    "date": "2026-06-29",
+    "tags": ["video"],
+    "file": "videos/screen-recording-1.webm"
+  },
+  {
+    "id": 5,
+    "type": "video",
+    "title": "Recording 2",
+    "description": "Screen recording",
+    "date": "2026-06-29",
+    "tags": ["video"],
+    "file": "videos/screen-recording-2.webm"
   }
 ]
