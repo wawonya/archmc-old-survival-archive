@@ -3,7 +3,33 @@ const searchInput = document.querySelector(".search input");
 
 let archiveData = [];
 
-// データ読み込み
+/* =========================
+   モーダル（先に作る）
+========================= */
+const modal = document.createElement("div");
+modal.style.position = "fixed";
+modal.style.top = "0";
+modal.style.left = "0";
+modal.style.width = "100%";
+modal.style.height = "100%";
+modal.style.background = "rgba(0,0,0,0.9)";
+modal.style.display = "none";
+modal.style.justifyContent = "center";
+modal.style.alignItems = "center";
+modal.style.zIndex = "9999";
+modal.style.cursor = "pointer";
+
+document.body.appendChild(modal);
+
+// モーダル閉じる
+modal.addEventListener("click", () => {
+    modal.style.display = "none";
+    modal.innerHTML = "";
+});
+
+/* =========================
+   データ読み込み
+========================= */
 fetch("data.json")
   .then(res => res.json())
   .then(data => {
@@ -11,7 +37,9 @@ fetch("data.json")
     render(data);
   });
 
-// 表示
+/* =========================
+   表示処理
+========================= */
 function render(data){
     grid.innerHTML = "";
 
@@ -22,7 +50,7 @@ function render(data){
         const thumb = document.createElement("div");
         thumb.className = "thumb";
 
-        // ★ここが修正ポイント
+        // 画像 or 動画表示
         if(item.type === "image"){
             thumb.innerHTML = `<img src="${item.file}">`;
         } else {
@@ -41,28 +69,40 @@ function render(data){
         card.appendChild(thumb);
         card.appendChild(info);
 
-        // クリック動作
+        /* =========================
+           クリック動作
+        ========================= */
         card.addEventListener("click", () => {
-            if(item.type === "image"){
-modal.innerHTML = `<img src="${item.file}" style="max-width:90%;max-height:90%;">`;
-modal.style.display = "flex";            } else {
-                const video = document.createElement("video");
-                video.src = item.file;
-                video.controls = true;
-                video.autoplay = true;
 
-                const win = window.open("");
-                win.document.body.style.margin = "0";
-                win.document.body.style.background = "black";
-                win.document.body.appendChild(video);
+            // 画像
+            if(item.type === "image"){
+                modal.innerHTML = `
+                    <img src="${item.file}" 
+                    style="max-width:90%;max-height:90%;border-radius:10px;">
+                `;
+                modal.style.display = "flex";
             }
+
+            // 動画
+            if(item.type === "video"){
+                modal.innerHTML = `
+                    <video src="${item.file}" 
+                    controls autoplay
+                    style="max-width:90%;max-height:90%;border-radius:10px;">
+                    </video>
+                `;
+                modal.style.display = "flex";
+            }
+
         });
 
         grid.appendChild(card);
     });
 }
 
-// 検索
+/* =========================
+   検索機能
+========================= */
 searchInput.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase();
 
@@ -73,23 +113,4 @@ searchInput.addEventListener("input", (e) => {
     );
 
     render(filtered);
-});
-const modal = document.createElement("div");
-modal.style.position = "fixed";
-modal.style.top = "0";
-modal.style.left = "0";
-modal.style.width = "100%";
-modal.style.height = "100%";
-modal.style.background = "rgba(0,0,0,0.9)";
-modal.style.display = "none";
-modal.style.justifyContent = "center";
-modal.style.alignItems = "center";
-modal.style.zIndex = "9999";
-
-document.body.appendChild(modal);
-
-// クリックで閉じる
-modal.addEventListener("click", () => {
-    modal.style.display = "none";
-    modal.innerHTML = "";
 });
