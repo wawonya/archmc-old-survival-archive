@@ -44,8 +44,8 @@ function render(data){
         // クリック動作
         card.addEventListener("click", () => {
             if(item.type === "image"){
-                window.open(item.file, "_blank");
-            } else {
+modal.innerHTML = `<img src="${item.file}" style="max-width:90%;max-height:90%;">`;
+modal.style.display = "flex";            } else {
                 const video = document.createElement("video");
                 video.src = item.file;
                 video.controls = true;
