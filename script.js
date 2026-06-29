@@ -74,3 +74,22 @@ searchInput.addEventListener("input", (e) => {
 
     render(filtered);
 });
+const modal = document.createElement("div");
+modal.style.position = "fixed";
+modal.style.top = "0";
+modal.style.left = "0";
+modal.style.width = "100%";
+modal.style.height = "100%";
+modal.style.background = "rgba(0,0,0,0.9)";
+modal.style.display = "none";
+modal.style.justifyContent = "center";
+modal.style.alignItems = "center";
+modal.style.zIndex = "9999";
+
+document.body.appendChild(modal);
+
+// クリックで閉じる
+modal.addEventListener("click", () => {
+    modal.style.display = "none";
+    modal.innerHTML = "";
+});
