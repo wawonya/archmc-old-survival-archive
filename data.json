@@ -30,18 +30,18 @@
     "id": 4,
     "type": "video",
     "title": "Recording 1",
-    "description": "Screen recording",
+    "description": "Screen recording 1",
     "date": "2026-06-29",
     "tags": ["video"],
-    "file": "videos/screen-recording-1.webm"
+    "file": "videos/2025-08-09_22-12-58.webm"
   },
   {
     "id": 5,
     "type": "video",
     "title": "Recording 2",
-    "description": "Screen recording",
+    "description": "Screen recording 2",
     "date": "2026-06-29",
     "tags": ["video"],
-    "file": "videos/screen-recording-2.webm"
+    "file": "videos/2025-08-09_22-18-13.webm"
   }
 ]
