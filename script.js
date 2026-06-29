@@ -114,3 +114,27 @@ searchInput.addEventListener("input", (e) => {
 
     render(filtered);
 });
+let currentIndex = 0;
+
+// キーボード操作
+document.addEventListener("keydown", (e) => {
+
+    if(!archiveData.length) return;
+
+    if(e.key === "ArrowRight"){
+        currentIndex++;
+        if(currentIndex >= archiveData.length) currentIndex = 0;
+        openItem(archiveData[currentIndex]);
+    }
+
+    if(e.key === "ArrowLeft"){
+        currentIndex--;
+        if(currentIndex < 0) currentIndex = archiveData.length - 1;
+        openItem(archiveData[currentIndex]);
+    }
+
+    if(e.key === "Escape"){
+        modal.style.display = "none";
+        modal.innerHTML = "";
+    }
+});
