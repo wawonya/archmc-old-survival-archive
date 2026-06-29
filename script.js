@@ -21,8 +21,10 @@ function render(data){
 
         const thumb = document.createElement("div");
         thumb.className = "thumb";
-        thumb.textContent = item.type === "video" ? "🎥" : "🖼️";
-
+if(item.type === "image"){
+    thumb.innerHTML = `<img src="${item.file}" style="width:100%;height:100%;object-fit:cover;">`;
+} else {
+    thumb.innerHTML = "🎥";
         const info = document.createElement("div");
         info.className = "info";
 
