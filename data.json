@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "type": "image",
+    "title": "Spawn",
+    "description": "Old Survival Spawn",
+    "date": "2026-06-29",
+    "tags": ["spawn", "survival"],
+    "file": "images/spawn.jpg"
+  },
+  {
+    "id": 2,
+    "type": "video",
+    "title": "Server Tour",
+    "description": "Old Survival Tour",
+    "date": "2026-06-29",
+    "tags": ["tour"],
+    "file": "videos/tour.mp4"
+  }
+]
